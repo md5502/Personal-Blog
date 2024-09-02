@@ -43,15 +43,22 @@ This project is a simple personal blog that allows you to write and publish arti
 ## Project Structure
 
 ```plaintext
-personal-blog/
-│
-├── index.html              # Home page for guests
-├── article.html            # Article page for guests
-├── dashboard.html          # Dashboard page for the admin
-├── add-article.html        # Add Article page for the admin
-├── edit-article.html       # Edit Article page for the admin
-├── styles.css              # CSS file for styling the blog
-└── README.md               # This README file
+/Personal-Blog/
+├── LICENSE
+├── README.md
+├── static
+│   ├── css
+│   │   └── styles.css
+│   └── js
+└── templates
+    ├── admin
+    │   ├── add-article.html
+    │   ├── base.html
+    │   ├── dashboard.html
+    │   └── edit-article.html
+    ├── article.html
+    ├── base.html
+    └── home.html
 ```
 
 ## Future Improvements

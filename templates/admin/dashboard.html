@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Admin Dashboard
+{% endblock title %}
+
+
+{% block content %}
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="add-article.html">Add Article</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="admin-articles">
+            <h2>Manage Articles</h2>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>Article Title 1</td>
+                    <td>September 1, 2024</td>
+                    <td>
+                        <a href="edit-article.html">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <!-- Add more articles as needed -->
+            </table>
+        </section>
+    </main>
+{% endblock content %}

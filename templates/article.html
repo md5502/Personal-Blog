@@ -9,10 +9,10 @@
 {% block content %}
     <main>
         <article>
-            <h2>Article Title</h2>
-            <p>Published on: September 1, 2024</p>
+            <h2>{{article.title}}</h2>
+            <p>Published on: {{article.created_at}}</p>
             <div>
-                <p>Content of the article goes here...</p>
+                <p>{{article.description}}</p>
             </div>
         </article>
     </main>

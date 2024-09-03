@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Personal Blog{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
@@ -17,6 +17,22 @@
     </nav>
 
     <main>
+
+        <div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                      {% if category == 'message' %}
+                        <div class="alert alert-warning" role="alert">
+                      {% else %}
+                        <div class="alert alert-{{ category }}" role="alert">
+                      {% endif %}
+                        {{ message }}
+                      </div>
+                  {% endfor %}
+                {% endif %}
+            {% endwith %}
+          </div>
         {% block content %}
         <!-- This block will be overridden by child templates -->
         {% endblock %}

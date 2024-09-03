@@ -12,8 +12,8 @@
     </header>
     <nav>
         <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="add-article.html">Add Article</a></li>
+            <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
+            <li><a href="{{url_for('create_article')}}">Add Article</a></li>
         </ul>
     </nav>
     <main>
@@ -22,17 +22,23 @@
             <table>
                 <tr>
                     <th>Title</th>
-                    <th>Date</th>
-                    <th>Actions</th>
+                    <th>Description</th>
+                    <th>Title</th>
+                    <th>Created at</th>
+                    <th>Updated at</th>
                 </tr>
+                {% for article in articles %}
                 <tr>
-                    <td>Article Title 1</td>
-                    <td>September 1, 2024</td>
+                    <td>{{article.title}}</td>
+                    <td>{{article.description}}</td>
+                    <td>{{article.created_at}}</td>
+                    <td>{{article.updated_on}}</td>
                     <td>
-                        <a href="edit-article.html">Edit</a> |
-                        <a href="#">Delete</a>
+                        <a href="{{url_for('edit_article', id=article.id)}}">Edit</a> |
+                        <a href="{{url_for('delete_article', id=article.id)}}">Delete</a>
                     </td>
                 </tr>
+                {% endfor %}
                 <!-- Add more articles as needed -->
             </table>
         </section>

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'admin/base.html' %}
 
 
 {% block title %}
@@ -23,9 +23,9 @@
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
-                    <th>Title</th>
                     <th>Created at</th>
                     <th>Updated at</th>
+                    <th>Actions</th>
                 </tr>
                 {% for article in articles %}
                 <tr>

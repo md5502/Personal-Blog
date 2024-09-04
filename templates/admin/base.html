@@ -7,11 +7,25 @@
     <title>{% block title %}
         
     {% endblock title %}</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
-
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                  {% if category == 'message' %}
+                    <div class="alert alert-warning" role="alert">
+                  {% else %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                  {% endif %}
+                    {{ message }}
+                  </div>
+              {% endfor %}
+            {% endif %}
+        {% endwith %}
+      </div>
     {% block content %}
         
     {% endblock content %}

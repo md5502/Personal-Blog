@@ -72,6 +72,7 @@ class Base():
 class Article(Base, db.Model):
     title = db.Column(db.String(50))
     description = db.Column(db.Text)
+    
 
 
     def __init__(self, title, description, updated_on=''):
@@ -126,7 +127,7 @@ def login():
         if user:
             session['user_id'] = user.id  # Store user ID in session
             flash(f"Welcome back, {user.name}!", "success")
-            return redirect(url_for('dashboard' if user.role == 'admin' else 'home'))
+            return redirect(url_for('article_list' if user.role == 'admin' else 'home'))
         else:
             flash("Invalid username or password", "danger")
             return redirect(url_for('login'))
@@ -182,11 +183,18 @@ def create_article():
     return render_template('admin/add-article.html')
 
 
+@app.route('/admin/articles')
+@login_required
+def article_list():
+    articles = db.session.execute(db.select(Article).order_by(Article.title)).scalars()
+    return render_template("admin/article_list.html", articles=articles)
+
+
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    articles = db.session.execute(db.select(Article).order_by(Article.title)).scalars()
-    return render_template("admin/dashboard.html", articles=articles)
+    return render_template("admin/dashboard.html")
+
 
 
 @app.route('/admin/article/edit/<id>', methods=['GET', 'POST'])
@@ -211,7 +219,7 @@ def edit_article(id):
 
             flash("the article update successfully", 'success')
 
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('article_list'))
     return render_template('admin/edit-article.html', old_article = old_article)
 
 @app.route('/admin/article/delete/<id>', methods= ['GET', 'POST'])
@@ -221,7 +229,7 @@ def delete_article(id):
         db.session.delete(article)
         db.session.commit()
         flash("article deleted successfully", 'success')
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('article_list'))
     return render_template("admin/delete_article.html", article=article)
 
 

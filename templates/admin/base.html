@@ -11,6 +11,14 @@
 </head>
 
 <body>
+
+  <nav>
+    <ul>
+        <li><a href="{{url_for('article_list')}}">Dashboard</a></li>
+        <li><a href="{{url_for('create_article')}}">Add Article</a></li>
+        <li><a href="{{url_for('user_create')}}">Add User</a></li>
+    </ul>
+  </nav>
     <div>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}

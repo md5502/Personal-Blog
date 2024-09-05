@@ -1,6 +1,6 @@
 from app import auth, db
 from app.models import User
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 
 
@@ -12,3 +12,9 @@ def verify_password(username, password):
             if check_password_hash(user.password ,password):
                 return user
     return False
+
+def create_super_user(username, password):
+    admin_user = User(username, generate_password_hash(password), "admin")
+    db.session.add(admin_user)
+    db.session.commit()
+    print("super user created successfully")

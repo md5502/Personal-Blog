@@ -8,7 +8,7 @@ def login_required(f):
     def decorated_function(*args, **kwargs):
         if not is_logged_in():
             flash("You need to log in first!", "warning")
-            return redirect(url_for('login'))
+            return redirect(url_for('auth.login'))
         return f(*args, **kwargs)
     return decorated_function
 
@@ -22,7 +22,7 @@ def admin_required(f):
         user = get_current_user()
         if user.role != 'admin':
             flash("You need to be admin", "warning")
-            return redirect(url_for('home'))
+            return redirect(url_for('blog.home'))
 
         return f(*args, **kwargs)
     return decorated_function

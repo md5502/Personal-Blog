@@ -18,10 +18,10 @@ def login():
         if user:
             session['user_id'] = user.id  # Store user ID in session
             flash(f"Welcome back, {user.name}!", "success")
-            return redirect(url_for('article_list' if user.role == 'admin' else 'home'))
+            return redirect(url_for('admin.article_list' if user.role == 'admin' else 'blog.home'))
         else:
             flash("Invalid username or password", "danger")
-            return redirect(url_for('login'))
+            return redirect(url_for('auth.login'))
     return render_template('auth/login.html')
 
 
@@ -29,7 +29,7 @@ def login():
 def logout():
     session.pop('user_id', None)  # Remove user ID from session
     flash("You have been logged out.", "success")
-    return redirect(url_for('login'))
+    return redirect(url_for('auth.login'))
 
 
 @bp.route('/signup', methods= ['GET', 'POST'])
@@ -45,6 +45,6 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
         flash("the new user created successfully", "success")
-        return redirect(url_for('login'))
+        return redirect(url_for('auth.login'))
     return render_template('auth/sign_up.html', form=form)
 

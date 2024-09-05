@@ -39,7 +39,7 @@ def create_article():
             db.session.close()
             flash("the article created successfully", 'success')
 
-            return redirect(url_for('home'))
+            return redirect(url_for('blog.home'))
     return render_template('admin/add-article.html')
 
 @bp.route('/article/edit/<id>', methods=['GET', 'POST'])

@@ -17,16 +17,16 @@
                 <div class="container">
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <div class="navbar-end">
-                            <a href="{{ url_for('home') }}" class="navbar-item">
+                            <a href="{{ url_for('blog.home') }}" class="navbar-item">
                                 Home
                             </a>
-                            <a href="{{ url_for('login') }}" class="navbar-item">
+                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
                                 Login
                             </a>
-                            <a href="{{ url_for('signup') }}" class="navbar-item">
+                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
                                 Sign Up
                             </a>
-                            <a href="{{ url_for('logout') }}" class="navbar-item">
+                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
                                 Logout
                             </a>
                         </div>

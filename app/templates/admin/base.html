@@ -7,16 +7,16 @@
     <title>{% block title %}
         
     {% endblock title %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
 
   <nav>
     <ul>
-        <li><a href="{{url_for('article_list')}}">Dashboard</a></li>
-        <li><a href="{{url_for('create_article')}}">Add Article</a></li>
-        <li><a href="{{url_for('user_create')}}">Add User</a></li>
+        <li><a href="{{url_for('admin.article_list')}}">Dashboard</a></li>
+        <li><a href="{{url_for('admin.create_article')}}">Add Article</a></li>
+        <li><a href="{{url_for('admin.user_create')}}">Add User</a></li>
     </ul>
   </nav>
     <div>

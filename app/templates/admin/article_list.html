@@ -29,8 +29,8 @@
                     <td>{{article.created_at}}</td>
                     <td>{{article.updated_on}}</td>
                     <td>
-                        <a href="{{url_for('edit_article', id=article.id)}}">Edit</a> |
-                        <a href="{{url_for('delete_article', id=article.id)}}">Delete</a>
+                        <a href="{{url_for('admin.edit_article', id=article.id)}}">Edit</a> |
+                        <a href="{{url_for('admin.delete_article', id=article.id)}}">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

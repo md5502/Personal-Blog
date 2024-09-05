@@ -18,7 +18,7 @@ def create_app():
 
     # app.register_blueprint(auth.bp)
     app.register_blueprint(admin.bp)
-    # app.register_blueprint(blog.bp)
+    app.register_blueprint(blog.bp)
     # app.register_blueprint(user.bp)
 
     return app

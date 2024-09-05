@@ -12,7 +12,7 @@
             <h2>Articles</h2>
             {% for article in articles %}
             <article>
-                <h3><a href="{{url_for('detail_article', id=article.id)}}">{{article.title}}</a></h3>
+                <h3><a href="{{url_for('blog.detail_article', id=article.id)}}">{{article.title}}</a></h3>
                 <p>{{article.created_at}}</p>
                 <p>{{ article.description }}</p>
             </article>

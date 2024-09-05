@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+
+{% block title %}
+    Personal Blog - Detail
+{% endblock title %}
+    
+
+{% block content %}
+    <main>
+        <article>
+            <h2>{{article.title}}</h2>
+            <p>Published on: {{article.created_at}}</p>
+            <div>
+                <p>{{article.description}}</p>
+            </div>
+        </article>
+    </main>
+{% endblock content %}

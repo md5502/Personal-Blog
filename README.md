@@ -44,21 +44,56 @@ This project is a simple personal blog that allows you to write and publish arti
 
 ```plaintext
 /Personal-Blog/
+.
+├── app
+│   ├── config.py
+│   ├── forms.py
+│   ├── __init__.py
+│   ├── models.py
+│   ├── permissions.py
+│   ├── routes
+│   │   ├── admin.py
+│   │   ├── auth.py
+│   │   ├── blog.py
+│   │   ├── __init__.py
+│   │   └── user.py
+│   ├── static
+│   │   ├── css
+│   │   │   └── styles.css
+│   │   └── js
+│   ├── templates
+│   │   ├── admin
+│   │   │   ├── add-article.html
+│   │   │   ├── article_list.html
+│   │   │   ├── base.html
+│   │   │   ├── dashboard.html
+│   │   │   ├── delete_article.html
+│   │   │   └── edit-article.html
+│   │   ├── auth
+│   │   │   ├── base.html
+│   │   │   ├── login.html
+│   │   │   └── sign_up.html
+│   │   ├── blog
+│   │   │   ├── article.html
+│   │   │   ├── base.html
+│   │   │   └── home.html
+│   │   └── user
+│   │       ├── base.html
+│   │       ├── create.html
+│   │       ├── delete.html
+│   │       ├── detail.html
+│   │       └── list.html
+│   └── utils.py
+├── instance
+│   └── database.db
 ├── LICENSE
+
 ├── README.md
-├── static
-│   ├── css
-│   │   └── styles.css
-│   └── js
-└── templates
-    ├── admin
-    │   ├── add-article.html
-    │   ├── base.html
-    │   ├── dashboard.html
-    │   └── edit-article.html
-    ├── article.html
-    ├── base.html
-    └── home.html
+├── run.py
+└── tree.txt
+
+15 directories, 49 files
+
 ```
 
 ## Future Improvements
